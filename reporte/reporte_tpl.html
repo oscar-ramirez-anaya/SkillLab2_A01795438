@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>SkillLab2_A01795438</title>
+<style>
+  @page { size: Letter; margin: 18mm 16mm; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 10.5pt; line-height: 1.45; color: #1d2329; }
+  h1 { font-size: 17pt; color: #0350a1; margin: 0 0 4px; }
+  h2 { font-size: 13pt; color: #0350a1; border-bottom: 2px solid #0350a1; padding-bottom: 3px; margin: 20px 0 8px; page-break-after: avoid; }
+  h3 { font-size: 11pt; margin: 14px 0 6px; page-break-after: avoid; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 10px; font-size: 9.5pt; page-break-inside: avoid; }
+  th, td { border: 1px solid #c8ced6; padding: 5px 7px; text-align: left; vertical-align: top; }
+  th { background: #0350a1; color: #fff; }
+  td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  td.c { text-align: center; }
+  table.split { page-break-inside: auto; }
+  table.split tr { page-break-inside: avoid; }
+  img.fig { width: 82%; display: block; margin: 6px auto; }
+  img { width: 100%; margin: 6px 0; page-break-inside: avoid; }
+  .box { background: #eef4fb; border-left: 4px solid #0350a1; padding: 8px 12px; margin: 8px 0; page-break-inside: avoid; }
+  .warn { background: #fbeeb8; border-left: 4px solid #b58a00; padding: 8px 12px; margin: 8px 0; page-break-inside: avoid; }
+  pre { background: #f5f7fa; border: 1px solid #ddd; padding: 8px; font-size: 8.8pt; white-space: pre-wrap; page-break-inside: avoid; }
+  ul { margin: 4px 0 8px 18px; padding: 0; }
+  li { margin-bottom: 3px; }
+  .pb { page-break-before: always; }
+  .cover { height: 225mm; display: flex; flex-direction: column; justify-content: center; text-align: center; page-break-after: always; }
+  .cover h1 { font-size: 22pt; margin-bottom: 34px; line-height: 1.25; }
+  .cover p { margin: 3px 0; font-size: 11pt; }
+  .cover .gap { height: 22px; }
+  .toc { width: 100%; border: none; margin: 6px 0 14px; }
+  .toc td { border: none; border-bottom: 1px dotted #b9c1cc; padding: 4px 2px; }
+  .toc td.pg { text-align: right; width: 12%; }
+  .refs p { padding-left: 24px; text-indent: -24px; margin: 0 0 8px; font-size: 10pt; }
+  .trazas { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+  .trazas table { font-size: 8.6pt; margin: 4px 0 8px; }
+  .trazas th, .trazas td { padding: 3px 5px; }
+  .trazas caption { text-align: left; font-weight: bold; font-size: 9.5pt; padding: 2px 0; }
+  tr.falla td { background: #fdecea; }
+  tr.sintoma td { color: #6b7480; }
+  .diag { border: 1px solid #c8ced6; border-left: 4px solid #0350a1; padding: 7px 12px; margin: 0 0 10px; page-break-inside: avoid; }
+  .diag h3 { margin: 0 0 4px; }
+  .diag p { margin: 3px 0; }
+  .tag { display: inline-block; background: #0350a1; color: #fff; border-radius: 3px; padding: 0 6px; font-size: 9pt; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+<h1>Skill Lab 2<br>Diagnóstico de trazas del ciclo</h1>
+<p><b>Instituto Tecnológico y de Estudios Superiores de Monterrey</b></p>
+<p><b>Maestría en Inteligencia Artificial Aplicada</b></p>
+<div class="gap"></div>
+<p>Materia: Sistemas multiagente (IA5004.10)</p>
+<p>Actividad: Skill Lab 2 — Diagnóstico de trazas del ciclo</p>
+<p>Conjunto de datos: conjunto común <code>skill_lab2_datos.json</code> (trazas simuladas, sin API)</p>
+<div class="gap"></div>
+<p><b>Alumno:</b> Oscar Alberto Ramírez Anaya</p>
+<p><b>Matrícula:</b> A01795438</p>
+<p><b>Correo:</b> A01795438@tec.mx</p>
+<p><b>Repositorio:</b> <a href="https://github.com/oscar-ramirez-anaya/SkillLab2_A01795438">https://github.com/oscar-ramirez-anaya/SkillLab2_A01795438</a></p>
+<div class="gap"></div>
+<p><b>Fecha de entrega:</b> 18 de octubre de 2026</p>
+</div>
+
+<h2>Contenido</h2>
+<table class="toc">
+<tr><td>1. Resumen ejecutivo</td><td class="pg">{P1}</td></tr>
+<tr><td>2. Contexto, datos y método</td><td class="pg">{P2}</td></tr>
+<tr><td>3. Parte A. Las siete trazas y la huella de fases</td><td class="pg">{P3}</td></tr>
+<tr><td>4. Parte B. Seis diagnósticos de fase primaria</td><td class="pg">{P4}</td></tr>
+<tr><td>5. Interpretación 1. Verificaciones de la especificación</td><td class="pg">{P5}</td></tr>
+<tr><td>6. Interpretación 2. El paro por presupuesto en F6</td><td class="pg">{P6}</td></tr>
+<tr><td>7. Conclusiones</td><td class="pg">{P7}</td></tr>
+<tr><td>8. Declaración de uso de IA</td><td class="pg">{P8}</td></tr>
+<tr><td>9. Referencias</td><td class="pg">{P9}</td></tr>
+</table>
+
+<h2>1. Resumen ejecutivo</h2>
+<div class="box">
+Audité seis trazas con una falla sembrada cada una, caminándolas hacia atrás desde el paro hasta la <b>primera fase que rompió su contrato</b>. Las fallas primarias son: <b>F1 observar</b> (evidencia de 34 días usada sin revisar su fecha), <b>F2 razonar</b> (causa asumida sin evidencia), <b>F3 planear</b> (plan no revisado tras una observación que lo contradice), <b>F4 actuar</b> (consulta de P052 en lugar de P051), <b>F5 evaluar</b> (el modelo se califica a sí mismo) y <b>F6 paro</b> (presupuesto agotado sin caso ni declaración). En cinco de los seis casos el agente declaró <b>ÉXITO</b>: para el gerente comercial, un caso mal fundamentado llega con la misma cara que uno bueno. Cada falla tiene una verificación de la especificación que la habría detenido en el paso donde ocurre, no después; la más rentable de instalar primero es la validación de argumentos antes de llamar una herramienta.
+</div>
+
+<h2>2. Contexto, datos y método</h2>
+<p>Distribuidora Cuauhtémoc opera un agente que detecta quiebres de inventario y prepara casos para el gerente comercial. El agente trabaja en vueltas de un ciclo de seis fases que extiende el patrón de intercalar razonamiento y acción (Yao et al., 2023) con planeación, evaluación y paro; cada fase tiene un <b>contrato</b>:</p>
+<table>
+<tr><th style="width:16%">Fase</th><th>Contrato (lo que promete hacer bien)</th></tr>
+<tr><td>observar</td><td>Traer evidencia real y vigente; nunca inventar lo que falta</td></tr>
+<tr><td>razonar</td><td>Concluir solo desde la evidencia observada</td></tr>
+<tr><td>planear</td><td>Revisar el plan cuando la evidencia lo contradiga</td></tr>
+<tr><td>actuar</td><td>Llamar herramientas con argumentos validados</td></tr>
+<tr><td>evaluar</td><td>Calificar contra criterios externos, nunca con la opinión del propio modelo</td></tr>
+<tr><td>paro</td><td>Declarar el estado real: éxito con evidencia, o límite con lo que alcanzó a saberse</td></tr>
+</table>
+<p><b>Datos.</b> Conjunto común <code>skill_lab2_datos.json</code>, igual para todo el grupo: tienda <b>T0118</b>, producto <b>P051</b>, antigüedad de la captura de competencia <b>34 días</b> y presupuesto de referencia de <b>8 vueltas</b>. La función <code>construir_trazas</code> sustituye estos parámetros en siete trazas tipadas (un <code>Enum</code> cerrado de fases y una <code>dataclass</code> inmutable por paso); en F4 calcula el producto consultado por error como <code>"P0" + str((51 % 58) + 1).zfill(2)</code> = <b>P052</b>. No se ejecuta ningún modelo ni servicio externo; las trazas son didácticas.</p>
+<p><b>Método.</b> Para cada traza F1–F6 apliqué el protocolo del auditor: (1) caminar la traza hacia atrás desde el paro; (2) preguntar en cada paso si la fase cumplió su contrato con lo que tenía enfrente; (3) tomar como falla primaria la primera fase, en orden de ejecución, que lo rompió, y tratar todo lo posterior como síntoma; (4) nombrar la verificación de la especificación que la habría detenido en ese momento. La huella de fases se usó solo para decidir dónde leer primero, no como prueba. El análisis se hizo en pandas (McKinney, 2010) y matplotlib (Hunter, 2007) con el notebook del laboratorio (Tecnológico de Monterrey, 2026), ejecutado completo: el validador de formato no reporta pendientes y las cuatro pruebas locales del instrumento pasan. El notebook ejecutado, los datos, la figura y la fuente de este reporte están en <a href="https://github.com/oscar-ramirez-anaya/SkillLab2_A01795438">https://github.com/oscar-ramirez-anaya/SkillLab2_A01795438</a>.</p>
+
+<h2 class="pb">3. Parte A. Las siete trazas y la huella de fases</h2>
+<p>Las siete trazas son casos independientes, no siete pasos de un mismo caso. Se reproducen tal como las genera el notebook. En rojo, el paso que diagnostico como falla primaria; en gris, los pasos posteriores que son síntoma.</p>
+<div class="trazas">
+<table><caption>F0 · referencia (control)</caption>
+<tr><th style="width:9%">Paso</th><th style="width:20%">Fase</th><th>Qué registró</th></tr>
+<tr><td class="c">1</td><td>OBSERVAR</td><td>ventas e inventarios zona Bajío; detección de combinación crítica</td></tr>
+<tr><td class="c">2</td><td>RAZONAR</td><td>costo estimado alto; buscar causas</td></tr>
+<tr><td class="c">3</td><td>OBSERVAR</td><td>promoción activa del mismo producto en la zona</td></tr>
+<tr><td class="c">4</td><td>EVALUAR</td><td>el criterio de conflicto del contrato se cumple</td></tr>
+<tr><td class="c">5</td><td>PARO</td><td>ESCALAMIENTO: caso preparado para el gerente con dos hipótesis</td></tr>
+</table>
+<table><caption>F1</caption>
+<tr><th style="width:9%">Paso</th><th style="width:20%">Fase</th><th>Qué registró</th></tr>
+<tr class="falla"><td class="c">1</td><td>OBSERVAR</td><td>capturas de competencia: usa la más reciente SIN revisar fecha (34 días)</td></tr>
+<tr class="sintoma"><td class="c">2</td><td>RAZONAR</td><td>el competidor bajó precio; conviene responder</td></tr>
+<tr class="sintoma"><td class="c">3</td><td>ACTUAR</td><td>escribe caso recomendando baja de precio</td></tr>
+<tr class="sintoma"><td class="c">4</td><td>PARO</td><td>ÉXITO declarado</td></tr>
+</table>
+<table><caption>F2</caption>
+<tr><th style="width:9%">Paso</th><th style="width:20%">Fase</th><th>Qué registró</th></tr>
+<tr><td class="c">1</td><td>OBSERVAR</td><td>no hay capturas para la tienda T0118</td></tr>
+<tr class="falla"><td class="c">2</td><td>RAZONAR</td><td>asume causa probable: entrada de competidor (SIN evidencia)</td></tr>
+<tr class="sintoma"><td class="c">3</td><td>ACTUAR</td><td>escribe caso con la causa asumida como hecho</td></tr>
+<tr class="sintoma"><td class="c">4</td><td>PARO</td><td>ÉXITO declarado</td></tr>
+</table>
+<table><caption>F3</caption>
+<tr><th style="width:9%">Paso</th><th style="width:20%">Fase</th><th>Qué registró</th></tr>
+<tr><td class="c">1</td><td>PLANEAR</td><td>plan: confirmar quiebre por falla del CD</td></tr>
+<tr><td class="c">2</td><td>OBSERVAR</td><td>inventario del CD normal (contradice la premisa)</td></tr>
+<tr class="falla"><td class="c">3</td><td>PLANEAR</td><td>continúa el plan original sin revisarlo</td></tr>
+<tr class="sintoma"><td class="c">4</td><td>ACTUAR</td><td>el caso atribuye el quiebre al CD</td></tr>
+<tr class="sintoma"><td class="c">5</td><td>PARO</td><td>ÉXITO declarado</td></tr>
+</table>
+<table><caption>F4</caption>
+<tr><th style="width:9%">Paso</th><th style="width:20%">Fase</th><th>Qué registró</th></tr>
+<tr><td class="c">1</td><td>OBSERVAR</td><td>quiebre detectado en el producto P051</td></tr>
+<tr class="falla"><td class="c">2</td><td>ACTUAR</td><td>consulta ventas del producto P052 (argumento no validado)</td></tr>
+<tr class="sintoma"><td class="c">3</td><td>RAZONAR</td><td>concluye con datos del producto equivocado</td></tr>
+<tr class="sintoma"><td class="c">4</td><td>PARO</td><td>ÉXITO declarado</td></tr>
+</table>
+<table><caption>F5</caption>
+<tr><th style="width:9%">Paso</th><th style="width:20%">Fase</th><th>Qué registró</th></tr>
+<tr><td class="c">1</td><td>ACTUAR</td><td>borrador de caso generado</td></tr>
+<tr class="falla"><td class="c">2</td><td>EVALUAR</td><td>el propio modelo califica su borrador: «excelente calidad»</td></tr>
+<tr class="sintoma"><td class="c">3</td><td>PARO</td><td>ÉXITO declarado sin criterios externos</td></tr>
+</table>
+<table><caption>F6</caption>
+<tr><th style="width:9%">Paso</th><th style="width:20%">Fase</th><th>Qué registró</th></tr>
+<tr><td class="c">1</td><td>OBSERVAR</td><td>señal ambigua</td></tr>
+<tr><td class="c">2</td><td>RAZONAR</td><td>necesito más datos</td></tr>
+<tr><td class="c">3</td><td>OBSERVAR</td><td>misma consulta repetida</td></tr>
+<tr><td class="c">4</td><td>RAZONAR</td><td>necesito más datos</td></tr>
+<tr><td class="c">5</td><td>OBSERVAR</td><td>misma consulta repetida</td></tr>
+<tr class="falla"><td class="c">6</td><td>PARO</td><td>PRESUPUESTO AGOTADO sin caso ni declaración</td></tr>
+</table>
+</div>
+
+
+<h3>La huella de fases</h3>
+<table>
+<tr><th>Traza</th><th class="c">observar</th><th class="c">razonar</th><th class="c">planear</th><th class="c">actuar</th><th class="c">evaluar</th><th class="c">paro</th></tr>
+<tr><td>F0</td><td class="n">2</td><td class="n">1</td><td class="n">0</td><td class="n">0</td><td class="n">1</td><td class="n">1</td></tr>
+<tr><td>F1</td><td class="n">1</td><td class="n">1</td><td class="n">0</td><td class="n">1</td><td class="n">0</td><td class="n">1</td></tr>
+<tr><td>F2</td><td class="n">1</td><td class="n">1</td><td class="n">0</td><td class="n">1</td><td class="n">0</td><td class="n">1</td></tr>
+<tr><td>F3</td><td class="n">1</td><td class="n">0</td><td class="n">2</td><td class="n">1</td><td class="n">0</td><td class="n">1</td></tr>
+<tr><td>F4</td><td class="n">1</td><td class="n">1</td><td class="n">0</td><td class="n">1</td><td class="n">0</td><td class="n">1</td></tr>
+<tr><td>F5</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">1</td><td class="n">1</td><td class="n">1</td></tr>
+<tr><td>F6</td><td class="n">3</td><td class="n">2</td><td class="n">0</td><td class="n">0</td><td class="n">0</td><td class="n">1</td></tr>
+</table>
+<img class="fig" src="../figuras/huella_de_fases.png" alt="Huella de fases por traza">
+<p><b>Lo que la huella orienta y lo que no.</b> F6 sobresale en <code>observar</code> (3) y <code>razonar</code> (2), y la lectura confirma que repite la misma consulta. Cinco trazas (F1, F2, F3, F4 y F6) nunca evalúan; solo F0 y F5 tienen <code>evaluar</code>. Pero la huella no basta: <b>F1, F2 y F4 tienen exactamente la misma huella</b> (1-1-0-1-0-1) y sus fallas primarias están en tres fases distintas, porque el conteo pierde el orden de los pasos y el contenido. En F4 el orden es la pista: <code>actuar</code> aparece antes que <code>razonar</code>. Y F5 sí evalúa, pero con el criterio equivocado. La huella dice dónde leer; el diagnóstico sale de leer.</p>
+<p><b>La vara de F0.</b> La traza de referencia observa dos veces (el quiebre y luego una causa candidata), evalúa contra un criterio del contrato y termina en <b>escalamiento</b> con dos hipótesis, no en un éxito. Ninguna de las seis trazas con falla escala: todas declaran éxito o se quedan sin declaración.</p>
+
+<h2>4. Parte B. Seis diagnósticos de fase primaria</h2>
+<table>
+<tr><th style="width:8%">Traza</th><th style="width:13%">Fase primaria</th><th style="width:7%">Paso</th><th>Evidencia en la traza</th><th style="width:26%">Síntomas posteriores</th></tr>
+<tr><td>F1</td><td><b>observar</b></td><td class="c">1</td><td>"usa la más reciente SIN revisar fecha (34 días)"</td><td>razonar (2), actuar (3), paro ÉXITO (4)</td></tr>
+<tr><td>F2</td><td><b>razonar</b></td><td class="c">2</td><td>"asume causa probable: entrada de competidor (SIN evidencia)"</td><td>actuar (3), paro ÉXITO (4)</td></tr>
+<tr><td>F3</td><td><b>planear</b></td><td class="c">3</td><td>"continúa el plan original sin revisarlo" después de "inventario del CD normal (contradice la premisa)"</td><td>actuar (4), paro ÉXITO (5)</td></tr>
+<tr><td>F4</td><td><b>actuar</b></td><td class="c">2</td><td>"consulta ventas del producto P052 (argumento no validado)" cuando el quiebre es de P051</td><td>razonar (3), paro ÉXITO (4)</td></tr>
+<tr><td>F5</td><td><b>evaluar</b></td><td class="c">2</td><td>"el propio modelo califica su borrador: «excelente calidad»"</td><td>paro ÉXITO sin criterios externos (3)</td></tr>
+<tr><td>F6</td><td><b>paro</b></td><td class="c">6</td><td>"PRESUPUESTO AGOTADO sin caso ni declaración"</td><td>(es el último paso: el daño es lo que no se entrega)</td></tr>
+</table>
+
+<div class="diag">
+<h3>F1 · <span class="tag">observar</span> · paso 1</h3>
+<p><b>Evidencia.</b> El primer registro toma la captura de competencia más reciente "SIN revisar fecha" y la captura tiene 34 días.</p>
+<p><b>Por qué es la causa.</b> El contrato de observar exige evidencia real <i>y vigente</i>. Una captura de 34 días es real pero no vigente: un precio de competencia de hace más de un mes no describe el mercado de hoy. Lo que sigue es lógicamente correcto con lo que recibió: razonar concluye que el competidor bajó precio <i>según la evidencia que tiene</i>, y actuar redacta el caso que esa conclusión pide. Ninguna de las dos rompe su contrato; heredan el error. Culpar a razonar sería diagnosticar el síntoma.</p>
+<p><b>Costo de negocio.</b> El gerente recibe una recomendación de bajar precio para responder a un movimiento que pudo haberse revertido semanas atrás: se sacrifica margen sin causa vigente.</p>
+</div>
+
+<div class="diag">
+<h3>F2 · <span class="tag">razonar</span> · paso 2</h3>
+<p><b>Evidencia.</b> Observar registra con honestidad "no hay capturas para la tienda T0118"; razonar "asume causa probable: entrada de competidor (SIN evidencia)".</p>
+<p><b>Por qué es la causa.</b> Observar cumplió: no inventó lo que faltaba y declaró el hueco. El contrato roto es el de razonar, que debía concluir solo desde la evidencia observada y en cambio convirtió una ausencia de datos en una causa. Actuar (paso 3) escribe "la causa asumida como hecho": ahí el supuesto se vuelve afirmación, pero actuar solo trasladó lo que razonar le entregó. La respuesta correcta en el paso 2 era una hipótesis marcada como tal o un escalamiento como en F0.</p>
+<p><b>Costo de negocio.</b> Un caso afirma una entrada de competidor en T0118 que nadie observó; el gerente puede reaccionar comercialmente contra un competidor que tal vez no existe.</p>
+</div>
+
+<div class="diag">
+<h3>F3 · <span class="tag">planear</span> · paso 3</h3>
+<p><b>Evidencia.</b> Paso 1: "plan: confirmar quiebre por falla del CD". Paso 2: "inventario del CD normal (contradice la premisa)". Paso 3: "continúa el plan original sin revisarlo".</p>
+<p><b>Por qué es la causa.</b> El plan inicial (paso 1) era una hipótesis legítima y observar (paso 2) hizo su trabajo: trajo evidencia que la refuta. El contrato de planear es justamente revisar el plan cuando la evidencia lo contradiga, y en el paso 3 no lo hace. Por eso la falla está en el <b>segundo</b> registro de planear, no en el primero. Como advierte el propio laboratorio, el caso final que atribuye el quiebre al CD parece falla de actuar, pero actuar ejecutó correctamente el plan que le dieron: es síntoma.</p>
+<p><b>Costo de negocio.</b> Se responsabiliza al centro de distribución de un quiebre que no causó; la causa real queda sin investigar y el quiebre puede repetirse.</p>
+</div>
+
+<div class="diag">
+<h3>F4 · <span class="tag">actuar</span> · paso 2</h3>
+<p><b>Evidencia.</b> Observar detecta el quiebre en P051; actuar "consulta ventas del producto P052 (argumento no validado)"; razonar "concluye con datos del producto equivocado".</p>
+<p><b>Por qué es la causa.</b> Observar identificó bien el producto. El contrato de actuar es llamar herramientas con argumentos validados, y el argumento de la consulta no coincide con la entidad observada. Razonar (paso 3) es un síntoma: razona correctamente sobre datos que le llegaron equivocados. Aquí el orden de la traza es la clave: actuar aparece <i>antes</i> que razonar, así que la primera ruptura en orden de ejecución es la de actuar. Es una falla especialmente peligrosa porque P052 devuelve datos reales y plausibles; nada en la salida delata el error.</p>
+<p><b>Costo de negocio.</b> Las decisiones de reabasto de P051 se toman con las ventas de otro producto.</p>
+</div>
+
+<div class="diag">
+<h3>F5 · <span class="tag">evaluar</span> · paso 2</h3>
+<p><b>Evidencia.</b> Tras generar el borrador, "el propio modelo califica su borrador: «excelente calidad»" y el paro declara "ÉXITO ... sin criterios externos".</p>
+<p><b>Por qué es la causa.</b> Generar un borrador (paso 1) no rompe ningún contrato; el borrador puede ser bueno o malo, y para saberlo existe evaluar. El contrato de evaluar prohíbe usar la opinión del propio modelo como criterio, y eso es exactamente lo que ocurre. Los evaluadores basados en modelos de lenguaje tienden a favorecer sus propias generaciones (Panickssery et al., 2024; Zheng et al., 2023), por lo que «excelente calidad» no es información. El paro declara un éxito que no tiene sustento: es síntoma.</p>
+<p><b>Costo de negocio.</b> Se elimina el único control de calidad del ciclo; cualquier caso, bueno o malo, sale con la misma etiqueta de éxito.</p>
+</div>
+
+<div class="diag">
+<h3>F6 · <span class="tag">paro</span> · paso 6</h3>
+<p><b>Evidencia.</b> Observar "señal ambigua", razonar "necesito más datos", dos veces "misma consulta repetida", y el paro registra "PRESUPUESTO AGOTADO sin caso ni declaración".</p>
+<p><b>Por qué es la causa.</b> Este fue el diagnóstico más discutible. La huella apunta a observar (3 registros) y la repetición de la misma consulta parece un incumplimiento de "traer evidencia". Lo descarto como falla primaria por tres razones: (1) observar no inventa nada; repetir una consulta no trae evidencia nueva, pero tampoco evidencia falsa; (2) ante una señal ambigua, pedir más datos es razonable, y el ciclo prevé precisamente el presupuesto como mecanismo para contener la búsqueda sin fin; (3) el presupuesto <b>sí funcionó</b>: detuvo el bucle. El contrato que se rompe es el del paro, que debía declarar el estado real ("límite alcanzado, esto es lo que se sabe") y en su lugar termina "sin caso ni declaración". Comparado con F0, que ante incertidumbre escala con hipótesis, F6 consume el presupuesto y no entrega nada utilizable. La repetición de la consulta queda como hallazgo secundario y motiva la segunda mitad de la verificación de F6 (sección 5).</p>
+<p><b>Costo de negocio.</b> Se gastan todas las vueltas y el gerente no recibe ni un caso ni un aviso: la señal se pierde en silencio, y el quiebre, si existe, sigue sin atenderse.</p>
+</div>
+
+<h2>5. Interpretación 1. Verificaciones de la especificación</h2>
+<p>Cada verificación se ubica en el paso donde ocurre la falla primaria, para detenerla <b>en el momento</b>: una vez que el error pasa a la fase siguiente, se vuelve indistinguible de una conclusión correcta.</p>
+<table class="split">
+<tr><th style="width:7%">Traza</th><th style="width:30%">Verificación</th><th style="width:15%">Dónde se aplica</th><th>Por qué funciona</th></tr>
+<tr><td>F1</td><td><b>Regla de vigencia:</b> toda evidencia lleva fecha de captura; la especificación fija una antigüedad máxima por tipo de fuente (p. ej., 7 días para precios de competencia) y lo que la excede se rechaza o se marca "no vigente".</td><td>Observar, paso 1, antes de entregar la evidencia a razonar</td><td>La fecha está disponible (34 días) y la comparación es determinista; no depende de que el modelo "se dé cuenta". Una captura vencida dispara una nueva consulta o un escalamiento, no una recomendación.</td></tr>
+<tr><td>F2</td><td><b>Regla de trazabilidad:</b> cada causa que entra al caso debe citar la observación que la respalda; si no hay cita, se registra como hipótesis por verificar.</td><td>Razonar, paso 2, al formular la causa</td><td>Convierte la diferencia entre hecho e hipótesis en un campo verificable. "Entrada de competidor" no tiene ninguna observación que citar (paso 1 dice que no hay capturas), así que no puede salir como hecho.</td></tr>
+<tr><td>F3</td><td><b>Precondición de plan:</b> antes de continuar, el plan se contrasta con la última observación; si la premisa queda contradicha, el plan se revisa o se escala.</td><td>Planear, paso 3</td><td>La observación ya está etiquetada como contradicción de la premisa; la verificación solo exige que esa señal tenga consecuencia. Impide que un plan sobreviva a la evidencia que lo refuta.</td></tr>
+<tr><td>F4</td><td><b>Validación de argumentos:</b> el identificador de producto de cada llamada debe coincidir con la entidad del caso (P051) y existir en el catálogo; si no coincide, la llamada no se ejecuta.</td><td>Actuar, paso 2, antes de llamar la herramienta</td><td>Es una comparación exacta, barata y previa a la llamada. Es la única defensa posible, porque la respuesta de P052 es plausible y nada aguas abajo la distingue de la correcta.</td></tr>
+<tr><td>F5</td><td><b>Evaluador externo:</b> el borrador se califica contra la rúbrica de la especificación (evidencia citada y fechada, cifras verificables contra fuente, hipótesis marcadas como tales), con un verificador distinto del generador.</td><td>Evaluar, paso 2</td><td>Separa a quien genera de quien califica y reemplaza una opinión por criterios comprobables. «Excelente calidad» no cumple ningún criterio de la rúbrica y deja de contar como éxito.</td></tr>
+<tr><td>F6</td><td><b>Contrato del paro por límite</b> más <b>detector de repetición</b>: si una consulta se repite sin evidencia nueva, se corta el bucle; al agotar el presupuesto, el paro debe emitir la declaración de límite, el caso incompleto y la traza.</td><td>Paro, paso 6 (y, como refuerzo, la segunda observación repetida, paso 3)</td><td>El paro no puede cerrar con un estado vacío: la especificación exige el mensaje de límite como salida obligatoria. El detector evita gastar vueltas en consultas idénticas que no pueden cambiar la conclusión.</td></tr>
+</table>
+<p><b>Lectura de conjunto.</b> Cinco de las seis trazas terminan en "ÉXITO declarado". Una verificación transversal en el paro (no se acepta un éxito sin evidencia citada que haya pasado por una evaluación externa) habría convertido esos cinco éxitos en escalamientos. No sustituye a las verificaciones por fase, que detienen el error donde nace, pero es la red que impide que un caso mal fundamentado llegue a la bandeja del gerente con la misma cara que uno bien fundamentado.</p>
+
+<h2>6. Interpretación 2. El paro por presupuesto en F6</h2>
+<p><b>Lo que los registros permiten afirmar.</b> Existe una señal ambigua (paso 1); el agente reconoció dos veces que necesitaba más datos (pasos 2 y 4); la consulta que repitió no aportó nada nuevo (pasos 3 y 5); el presupuesto se agotó sin caso (paso 6). Los registros no incluyen un contador de vueltas: F6 tiene cinco registros antes del paro, pero un paso no es una vuelta completa, así que no puedo afirmar cuántas de las 8 vueltas del presupuesto de referencia se consumieron ni calcular en qué punto habría cortado un límite de 3.</p>
+<p><b>Qué cambia con 3 vueltas.</b> Reducir el presupuesto no corrige la falla, solo la adelanta: con la misma consulta repetida, el agente llegaría antes al mismo paro vacío. Lo que importa no es el número, sino que el paro por límite esté bien especificado. Con un presupuesto menor esto pesa más, porque hay menos vueltas para que el caso se resuelva solo y más probabilidad de terminar por límite.</p>
+<p style="page-break-after: avoid"><b>Cierre que propongo para F6:</b></p>
+<pre>ESTADO: LÍMITE ALCANZADO (presupuesto de 3 vueltas) SIN CONCLUSIÓN. No es un éxito.
+
+QUÉ SE SABE
+- Se detectó una señal ambigua de posible quiebre (paso 1).
+- La consulta realizada para aclararla no aportó evidencia nueva; se repitió
+  sin cambios (pasos 3 y 5).
+
+QUÉ FALTA
+- Evidencia que confirme o descarte el quiebre: inventario actual del
+  producto en la tienda y en el CD, ventas recientes y promociones activas.
+- No hay hipótesis de causa sustentadas; no se emite recomendación.
+
+SIGUIENTE PASO
+- Escalar al gerente comercial como caso incompleto, con la traza adjunta.
+- Sugerencia: consultar una fuente distinta a la repetida, o verificar en
+  piso con el preventista antes de reabrir el caso con un presupuesto nuevo.</pre>
+<p><b>Justificación.</b> El mensaje cumple las tres condiciones de un paro por límite bien especificado que plantea el notebook: (1) declaración honesta (límite sin conclusión, explícitamente "no es un éxito"); (2) caso incompleto con lo que sí se supo, sin inventar resultados; (3) la traza, para que quien continúe tenga evidencia. Sigue además la forma de F0: ante incertidumbre, escalar con lo que se tiene. Para Distribuidora Cuauhtémoc la diferencia es concreta: con el paro original la señal se pierde en silencio; con este cierre el gerente sabe que hay un posible quiebre sin resolver, qué falta y qué consulta no sirve repetir.</p>
+
+<h2>7. Conclusiones</h2>
+<ul>
+<li><b>El diagnóstico que más me costó: F6.</b> La huella señala un <code>observar</code> repetido y la ausencia de <code>evaluar</code>, y es tentador llamarlo falla de observación. Pero el presupuesto sí detuvo el bucle; lo que rompe su contrato es el paro, que termina sin caso ni declaración del estado real. También fue instructivo que F1, F2 y F4 compartan huella con fallas en fases distintas.</li>
+<li><b>La verificación que instalaría primero:</b> la validación de argumentos antes de llamar una herramienta, justificada por F4. En integraciones con sistemas PMS y POS, un identificador equivocado devuelve un resultado plausible que nadie cuestiona, igual que P052 en lugar de P051; es barata, determinista y no tiene otra defensa aguas abajo.</li>
+<li><b>La huella de fases en mi organización:</b> auditaría la atención de incidencias de soporte. Contar por ticket cuántas veces se repite "solicitar más información" frente a cuántos cierres llevan verificación del cliente revela tickets en bucle y cierres sin evaluación, y orienta qué tickets leer completos.</li>
+</ul>
+
+<h2>8. Declaración de uso de IA</h2>
+<p><b>Herramienta:</b> Claude Code, asistente de IA de Anthropic (modelo Claude Opus 5.5), usado como apoyo de análisis.</p>
+<p><b>Propósito:</b> lectura guiada de las siete trazas contra la tabla de contratos, propuesta inicial de diagnósticos y verificaciones, llenado de las celdas DECISIÓN del notebook, ejecución del notebook y armado de este PDF.</p>
+<p><b>Verificaciones realizadas:</b> cada diagnóstico se contrastó paso a paso con la traza correspondiente (fase, número de paso y texto registrado); se comprobó que P052 es el producto que <code>construir_trazas</code> calcula a partir de P051; la tabla de huella se cotejó con la salida del notebook; el notebook se ejecutó completo, el validador de formato no reporta pendientes y las cuatro pruebas locales pasan. La interpretación final y la redacción son responsabilidad del alumno.</p>
+<p><b>Contexto:</b> como CTO, en mi empresa ya trabajo con agentes de IA en todos mis procesos y en distintas etapas, siempre con control humano y sin soltar el conocimiento: la IA es un apoyo mutuo, no un sustituto del criterio. Este laboratorio siguió esa misma práctica.</p>
+
+<h2>9. Referencias</h2>
+<div class="refs">
+<p>Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. <i>Computing in Science &amp; Engineering, 9</i>(3), 90–95. https://doi.org/10.1109/MCSE.2007.55</p>
+<p>McKinney, W. (2010). Data structures for statistical computing in Python. En S. van der Walt &amp; J. Millman (Eds.), <i>Proceedings of the 9th Python in Science Conference</i> (pp. 56–61). https://doi.org/10.25080/Majora-92bf1922-00a</p>
+<p>Panickssery, A., Bowman, S. R., &amp; Feng, S. (2024). LLM evaluators recognize and favor their own generations. En <i>Advances in Neural Information Processing Systems, 37</i>. https://arxiv.org/abs/2404.13076</p>
+<p>Tecnológico de Monterrey. (2026). <i>Skill Lab 2 | Diagnóstico de trazas del ciclo</i> [Actividad, notebook <code>skill_lab2_diagnostico_trazas.ipynb</code> y conjunto de datos <code>skill_lab2_datos.json</code>]. IA5004.10 Sistemas multiagente, Canvas.</p>
+<p>Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., &amp; Cao, Y. (2023). ReAct: Synergizing reasoning and acting in language models. En <i>International Conference on Learning Representations</i>. https://arxiv.org/abs/2210.03629</p>
+<p>Zheng, L., Chiang, W.-L., Sheng, Y., Zhuang, S., Wu, Z., Zhuang, Y., Lin, Z., Li, Z., Li, D., Xing, E. P., Zhang, H., Gonzalez, J. E., &amp; Stoica, I. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. En <i>Advances in Neural Information Processing Systems, 36</i>. https://arxiv.org/abs/2306.05685</p>
+</div>
+
+</body>
+</html>
