@@ -33,7 +33,7 @@ producto P051, captura de 34 días, presupuesto de 8 vueltas). No se ejecutan mo
 | `SkillLab2_A01795438.ipynb` | Notebook del laboratorio con las celdas DECISIÓN completadas y ejecutado con salidas |
 | `skill_lab2_datos.json` | Conjunto común del laboratorio |
 | `figuras/` | Gráfica de la huella de fases exportada del notebook |
-| `reporte/` | Fuente del PDF: plantilla HTML y `generar_pdf.py` (portada, índice y numeración) |
+| `reporte/` | Fuente del PDF: plantilla HTML, logo y `generar_pdf.py` (portada, índice con subsecciones y numeración) |
 
 ## Resultados principales
 
